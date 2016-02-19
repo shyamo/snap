@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Snap!</title>
+    <meta name="description" content="Snap! Test your memory with this simple game">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link type="text/css" href="css/styles.min.css" rel="stylesheet">
+</head>
+<body data-ng-app="myApp">
+    <div class="container"  data-ng-controller="myController as ctrl">
+        <div class="row game">
+            <div class="col-sm-12">
+                <h1>Snap!</h1>
+                Stats: <span class="score-right">Snap'd: 0 </span><span class="score-wrong">Wrong: 0</span>
+                <button class="btn btn-primary reset">Reset</button>
+            </div>
+        </div>
+        <div class="row game">
+           <div class="center">
+                <div class="matchbox col-xs-3"  data-ng-repeat="item in getNum(cardCount) track by $index">
+                    <i class="fa fa-5x"></i>
+                </div>
+           </div>
+        </div>
+    </div>
+    <div class="boss" style="display:none;"></div>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/main.min.js"></script>
+    <script>  
+        var cardData = [
+            {id:1, image: 'fa-chrome',  color: ''},
+            {id:2, image: 'fa-github',  color: ''},
+            {id:3, image: 'fa-bolt',    color: ''},
+            {id:4, image: 'fa-bomb',    color: ''},
+            {id:5, image: 'fa-camera',  color: ''},
+            {id:6, image: 'fa-apple',   color: ''},
+            {id:7, image: 'fa-reddit',  color: ''},
+            {id:8, image: 'fa-rebel',   color: ''}   
+        ];
+
+        //angular//
+        var app = angular.module('myApp', []);  
+        app.controller("myController", function($scope) {
+            $scope.data = cardData;
+            $scope.cardCount = 16;
+            $scope.getNum = function(num) {
+                return new Array(num);
+            }
+        });
+    </script>
+</body>
+</html>
