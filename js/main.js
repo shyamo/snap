@@ -1,3 +1,5 @@
+ /* Snap */
+ /* Copyright 2015 Shyam B */
 var game = {
     
     settings: {
